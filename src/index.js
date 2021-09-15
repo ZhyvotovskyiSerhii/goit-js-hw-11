@@ -28,15 +28,14 @@ function Ctrl() {
     })
 
     if (!hits.length) {
-      Notiflix.Notify.failure('No results!')
+      Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.')
       return []
     }
     
-    Notiflix.Notify.success('Wow! We found something')
+    Notiflix.Notify.success('"Hooray! We found images.')
     
     return hits.map(hit => ({
       webformatURL: hit.webformatURL, 
-      largeImageURL: hit.largeImageURL,
       tags: hit.tags,
       likes: hit.likes,
       views: hit.views,
@@ -47,7 +46,6 @@ function Ctrl() {
 
   const buildItemHtml = ({
     webformatURL,
-    largeImageURL,
     tags,
     likes,
     views,
